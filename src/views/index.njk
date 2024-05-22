@@ -1,0 +1,64 @@
+{% extends "__template/page.njk" %}
+
+{% block heading %}
+  {{ backLink({
+    href: "#",
+    text: "Go back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <form action="/" method="post">
+    {{ t("common.confirm")}}
+    {% if error %}
+      {{ errorSummary({
+        titleText: "There is a problem",
+        errorList: error.errorList
+      }) }}
+    {% endif %}
+
+    {% set errorMessage = { 
+      text: error.fields.year | d(error.fields.month) | d(error.fields.day)  
+    } if error.fields.year or error.fields.month or error.fields.day  else null %}
+
+    {{ dateInput({
+      fieldset: {
+        legend: {
+          text: "What is your date of birth?",
+          classes: "nhsuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      },
+      hint: {
+        text: "For example, 15 3 1984"
+      },
+      errorMessage: errorMessage,
+      items: [
+        { 
+          id: "day",
+          name: "day",
+          classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.day else  "nhsuk-input--width-2",
+          value: body.day | d('')
+        },
+        {
+          id: "month",
+          name: "month",
+          classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.month else  "nhsuk-input--width-2",
+          value: body.month | d('')
+        },
+        {
+          id: "year",
+          name: "year",
+          classes: "nhsuk-input--width-4  nhsuk-input--error" if error.fields.year else  "nhsuk-input--width-4",
+          value: body.year | d('')
+        }
+      ]
+    }) }}
+
+    {{ button({
+      text: "Continue"
+    }) }}
+
+  </form>
+
+{% endblock %}

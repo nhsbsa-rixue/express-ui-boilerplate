@@ -1,0 +1,41 @@
+{
+    "plugins": [
+        "import",
+        "prettier"
+    ],
+    "extends": [
+        "prettier"
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2023
+    },
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+              "endOfLine": "auto"
+            }
+          ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxBOF": 0,
+                "maxEOF": 0
+            }
+        ],
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
+        "import/newline-after-import": ["error", { "count": 1 }],
+        "no-unused-vars": "error",
+        "no-console": "warn"
+ 
+    }
+  }
+  
+  

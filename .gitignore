@@ -1,0 +1,28 @@
+# Coverage directories
+coverage/
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+
+# intellij
+.idea/
+.DS_Store
+
+# visual studio code
+.history/
+launch.json
+.vscode/
+
+# aws sam template
+.aws-sam/
+samconfig.toml
+template_docker_image.yaml
