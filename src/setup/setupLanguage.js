@@ -4,16 +4,21 @@ import middleware from "i18next-http-middleware";
 import * as pages from "../pages/index.js";
 import * as commonLocale from "../locales/index.js";
 
+// Load lang locales depending on the CONFIG.LANGUAGES
 const loadResources = () => {
-  const en = { translation: { ...commonLocale.en } };
-  const cy = { translation: { ...commonLocale.cy } };
-  Object.entries(pages).forEach(([key, page]) => {
-    if (page.locale) {
-      en.translation[key] = page.locale.en;
-      cy.translation[key] = page.locale.cy;
-    }
+  const resources = {};
+
+  config.LANGUAGES.forEach((lang) => {
+    resources[lang] = { translation: { ...commonLocale[lang] } };
+
+    Object.entries(pages).forEach(([key, page]) => {
+      if (page.locale) {
+        resources[lang].translation[key] = page.locale[lang];
+      }
+    });
   });
-  return { en, cy };
+
+  return resources;
 };
 
 const saveUserPreference = (req, res, next) => {
