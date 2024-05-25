@@ -1,4 +1,4 @@
-import * as chains from "./chains/index.js";
+import commonRules from "./common/index.js";
 import { validationResult } from "express-validator";
 
 const validator = (req, res, next) => {
@@ -24,4 +24,4 @@ const validator = (req, res, next) => {
   return res.redirect(req.route.path);
 };
 
-export { validator, chains };
+export { validator, commonRules };

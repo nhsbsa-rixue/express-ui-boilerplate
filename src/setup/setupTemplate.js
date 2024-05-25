@@ -3,6 +3,20 @@ import nunjucks from "nunjucks";
 import { fileURLToPath } from "url";
 import path from "path";
 import config from "../config/index.js";
+import * as pages from "../pages/index.js";
+
+const getTemplatePaths = () => {
+  // Set the path to the page template and macros
+  const templatePaths = [
+    "../template",
+    "../../node_modules/nhsuk-frontend/packages",
+  ];
+
+  Object.entries(pages).forEach(([key]) => {
+    templatePaths.push(`../pages/${key}`);
+  });
+  return templatePaths;
+};
 
 const setupTemplate = (app) => {
   // Set the path to the public folder
@@ -17,10 +31,8 @@ const setupTemplate = (app) => {
   });
 
   // Set the path to the page template and macros
-  let templatePaths = [
-    "../views",
-    "../../node_modules/nhsuk-frontend/packages",
-  ];
+  let templatePaths = getTemplatePaths();
+
   templatePaths = templatePaths.map((templatePath) =>
     path.resolve(__dirname, templatePath),
   );

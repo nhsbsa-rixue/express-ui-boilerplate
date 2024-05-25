@@ -1,6 +1,19 @@
-import common from "./common.js";
-
-const translation = {
-  common,
+const common = {
+  yes: "Yes",
+  no: "No",
+  back: "Go back",
+  text: "Text",
+  email: "Email",
+  previous: "Previous",
+  next: "Next",
+  change: "Change",
+  remove: "Remove",
+  cancel: "Cancel",
+  confirm: "Confirm",
 };
-export { translation };
+
+const error = {
+  summaryTitle: "There is a problem",
+};
+
+export { common, error };

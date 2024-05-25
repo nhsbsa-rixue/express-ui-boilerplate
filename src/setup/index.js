@@ -1,9 +1,9 @@
-import router from "../router/index.js";
 import setupSecurity from "./setupSecurity.js";
 import setupTemplat from "./setupTemplate.js";
 import setupParser from "./setupParser.js";
 import setupSession from "./setupSession.js";
 import setupLanguage from "./setupLanguage.js";
+import setupPages from "./setupPages.js";
 
 /**
  * 1. Configure to load heavy sync tasks once
@@ -19,5 +19,5 @@ export default (app) => {
   setupSession(app);
   setupLanguage(app);
 
-  app.use(router);
+  setupPages(app);
 };

@@ -1,4 +1,4 @@
-{% extends "__template/page.njk" %}
+{% extends "../../template/page.njk" %}
 
 {% block heading %}
   {{ backLink({
@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block content %}
-  <form action="/" method="post">
+  <form action="/dob" method="post">
     {{ t("common.confirm")}}
     {% if error %}
       {{ errorSummary({
-        titleText: "There is a problem",
+        titleText: t("error.summaryTitle"),
         errorList: error.errorList
       }) }}
     {% endif %}

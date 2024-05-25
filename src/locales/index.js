@@ -1,4 +1,2 @@
-import * as en from "./en/index.js";
-import * as cy from "./cy/index.js";
-
-export { en, cy };
+export * as en from "./en/index.js";
+export * as cy from "./cy/index.js";
