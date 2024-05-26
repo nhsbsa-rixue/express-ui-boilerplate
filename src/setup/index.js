@@ -18,6 +18,5 @@ export default (app) => {
   setupParser(app);
   setupSession(app);
   setupLanguage(app);
-
   setupPages(app);
 };
