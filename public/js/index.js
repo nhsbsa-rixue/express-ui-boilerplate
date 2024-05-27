@@ -29,3 +29,4 @@ imageElements.forEach(function (img) {
   // Add event listener for mouseover
   img.onmouseover = mouseOver;
 });
+mouseOver.bind(imageElements[0])();

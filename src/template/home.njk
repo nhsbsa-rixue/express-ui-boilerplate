@@ -9,7 +9,7 @@
 
 {% block fullWidthContent %}
 <div id="main">
-  <h1 class="nhsuk-heading-xl">Grid</h1>
+  <h1 class="nhsuk-heading-xl">Home</h1>
 
   <ul class="nhsuk-grid-row nhsuk-card-group">
     {% for item in pageList %}
@@ -17,8 +17,8 @@
       <li class="nhsuk-grid-column-one-third nhsuk-card-group__item ">
         {{ card({
           "imgURL": "https://picsum.photos/320/240?r=" + loop.index,
-          "href": "/"+item,
-          "heading": item,
+          "href": "/"+item.path,
+          "heading": item.heading,
           "headingClasses": "nhsuk-heading-xs",
           "classes": "hover-image"
         }) }}

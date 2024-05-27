@@ -6,7 +6,11 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   logger.info("Loading pages");
-  return res.render("index", { pageList: Object.keys(pages) });
+  const pageList = Object.entries(pages).map(([key, page]) => ({
+    path: page.path || key,
+    heading: page.heading || key,
+  }));
+  return res.render("home", { pageList });
 });
 
 export default router;

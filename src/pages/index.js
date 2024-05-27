@@ -1,2 +1,3 @@
-export * as Home from "./home/index.js";
-export * as DOB from "./dob/index.js";
+export * from "./waterfall-display/index.js";
+export * from "./text-effect/index.js";
+export * from "./dob/index.js";

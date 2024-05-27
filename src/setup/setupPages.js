@@ -1,4 +1,4 @@
-import router from "../commonRouter/index.js";
+import router from "../homeRouter/index.js";
 
 import * as pages from "../pages/index.js";
 import { validator } from "../validator/index.js";
