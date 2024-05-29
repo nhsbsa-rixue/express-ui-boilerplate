@@ -12,8 +12,8 @@ const loadResources = () => {
     resources[lang] = { translation: { ...commonLocale[lang] } };
 
     Object.entries(pages).forEach(([key, page]) => {
-      if (page.locale) {
-        resources[lang].translation[key] = page.locale[lang];
+      if (page.locales) {
+        resources[lang].translation[key] = page.locales[lang];
       }
     });
   });

@@ -8,6 +8,6 @@ export const dob = new Page({
   path: "dob",
   heading: "DOB form validation",
   controller,
-  locaes: locales,
+  locales,
   schema,
 });

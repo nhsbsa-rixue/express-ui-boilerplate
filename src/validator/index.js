@@ -1,4 +1,3 @@
-import commonRules from "./common/index.js";
 import { validationResult } from "express-validator";
 
 const validator = (req, res, next) => {
@@ -11,7 +10,7 @@ const validator = (req, res, next) => {
   req.session.body = req.body;
   req.session.error = {
     errorList: errors.map((error) => ({
-      text: error.msg,
+      text: req.t(error.msg),
       href: `#${error.path}`,
     })),
     fields: {},
@@ -24,4 +23,4 @@ const validator = (req, res, next) => {
   return res.redirect(req.route.path);
 };
 
-export { validator, commonRules };
+export { validator };

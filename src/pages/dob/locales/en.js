@@ -1,1 +1,12 @@
-export default {};
+export default {
+  title: "DOB form validation",
+  legend: "What is your date of birth?",
+  hint: "For example, 31 3 1980",
+  day: "Day",
+  month: "Month",
+  year: "Year",
+  yearLegnth: "Year must be 4 digits long.",
+  dayRequired: "Please enter a valid day",
+  monthRequired: "Please enter a valid month",
+  yearRequired: "Please enter a valid year",
+};

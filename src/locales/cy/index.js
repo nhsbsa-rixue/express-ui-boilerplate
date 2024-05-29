@@ -10,6 +10,11 @@ const common = {
   remove: "Dileu",
   cancel: "Canslo",
   confirm: "Cadarnhau",
+  continue: "Parhau",
 };
 
-export { common };
+const error = {
+  summaryTitle: "Mae problem wedi codi",
+};
+
+export { common, error };

@@ -5,10 +5,10 @@ export default [
     .trim()
     .notEmpty()
     .bail()
-    .withMessage("year is required.")
+    .withMessage("dob.dayRequired")
     .isInt()
     .isLength({ min: 4, max: 4 })
-    .withMessage("year must be 4 digits long."),
-  body("month").trim().notEmpty().withMessage("month is required."),
-  body("day").trim().notEmpty().withMessage("day is required."),
+    .withMessage("dob.yearLegnth"),
+  body("month").trim().notEmpty().withMessage("dob.monthRequired"),
+  body("day").trim().notEmpty().withMessage("dob.yearRequired"),
 ];

@@ -10,6 +10,7 @@ const common = {
   remove: "Remove",
   cancel: "Cancel",
   confirm: "Confirm",
+  continue: "Continue",
 };
 
 const error = {

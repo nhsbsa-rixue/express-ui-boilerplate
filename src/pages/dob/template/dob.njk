@@ -1,15 +1,14 @@
-{% extends "../../template/page.njk" %}
+{% extends "../../../template/page.njk" %}
 
 {% block heading %}
   {{ backLink({
     href: "/",
-    text: "Go back"
+    text: t("common.back")
   }) }}
 {% endblock %}
 
 {% block content %}
   <form action="/dob" method="post">
-    {{ t("common.confirm")}}
     {% if error %}
       {{ errorSummary({
         titleText: t("error.summaryTitle"),
@@ -18,37 +17,40 @@
     {% endif %}
 
     {% set errorMessage = { 
-      text: error.fields.year | d(error.fields.month) | d(error.fields.day)  
-    } if error.fields.year or error.fields.month or error.fields.day  else null %}
-
+      text: t(error.fields.year | d(error.fields.month) | d(error.fields.day) )
+    } if error.fields.year or error.fields.month or error.fields.day else null %}
+    
     {{ dateInput({
       fieldset: {
         legend: {
-          text: "What is your date of birth?",
+          text: t("dob.legend"),
           classes: "nhsuk-fieldset__legend--l",
           isPageHeading: true
         }
       },
       hint: {
-        text: "For example, 15 3 1984"
+        text: t("dob.hint")
       },
       errorMessage: errorMessage,
       items: [
         { 
           id: "day",
           name: "day",
+          label: t("dob.day"),
           classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.day else  "nhsuk-input--width-2",
           value: body.day | d('')
         },
         {
           id: "month",
           name: "month",
+          label: t("dob.month"),
           classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.month else  "nhsuk-input--width-2",
           value: body.month | d('')
         },
         {
           id: "year",
           name: "year",
+          label: t("dob.year"),
           classes: "nhsuk-input--width-4  nhsuk-input--error" if error.fields.year else  "nhsuk-input--width-4",
           value: body.year | d('')
         }
@@ -56,7 +58,7 @@
     }) }}
 
     {{ button({
-      text: "Continue"
+      text: t("common.continue")
     }) }}
 
   </form>
