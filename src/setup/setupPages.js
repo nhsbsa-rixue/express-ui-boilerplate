@@ -21,7 +21,7 @@ const setupPages = (app) => {
 
     if (controller.GET) router.get("/" + pagePath, controller.GET);
     if (controller.POST)
-      router.post("/" + pagePath, schema || [], validator, controller.POST);
+      router.post("/" + pagePath, schema, validator, controller.POST);
   });
 
   app.use(router);

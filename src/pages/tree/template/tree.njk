@@ -1,0 +1,21 @@
+
+{% extends "../../../template/page.njk" %}
+
+{% block head %}
+<script src="js/tree.js" defer></script>
+
+{% endblock%}
+
+{% block heading %}
+  {{ backLink({
+    href: "/",
+    text: "Go back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+    <canvas></canvas>
+
+
+
+{% endblock %}

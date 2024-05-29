@@ -1,6 +1,22 @@
 
 {% extends "../../../template/page.njk" %}
 
+{% block head %}
+    <style>
+        .container {
+            display: grid;
+            /* gap: 10px; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: masonry;   
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+        .item {
+            background-color: blanchedalmond;
+        }
+    </style>
+{% endblock%}
+
 {% block heading %}
   {{ backLink({
     href: "/",
@@ -8,9 +24,17 @@
   }) }}
 {% endblock %}
 
-{% block content %}
+{% block fullWidthContent %}
   
-This is waterfall display
+    <div class="container">
+        
+
+    {% for i in range(20) %}
+        {{ card({}) }}
+    {% endfor %}
+
+       
+    </div>
 
 
 {% endblock %}
