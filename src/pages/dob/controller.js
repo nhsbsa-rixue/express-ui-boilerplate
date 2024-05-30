@@ -7,7 +7,7 @@ const POST = async (req, res) => {
 
   console.log('================');
 
-  return res.redirect("/myapp/dob");
+  return res.redirect("/dob");
 };
 
 export default { GET, POST };
