@@ -40,7 +40,7 @@
   {{ header({
     "showNav": "false",
     "showSearch": "false",
-    "homeHref": baseUrl
+    "homeHref": CONTEXT_PATH
     })
   }}
 {% endblock %}
@@ -81,23 +81,7 @@
   {{ footer({
     "links": [
       {
-        "URL": baseUrl,
-        "label": "NHS.UK frontend"
-      },
-      {
-        "URL": baseUrl + "pages/install.html",
-        "label": "Install"
-      },
-      {
-        "URL": baseUrl + "pages/examples.html",
-        "label": "Examples"
-      },
-      {
-        "URL": baseUrl + "pages/about.html",
-        "label": "About"
-      },
-      {
-        "URL": "https://github.com/nhsuk/nhsuk-frontend",
+        "URL": "https://github.com/nhsbsa-rixue/express-ui-boilerplate",
         "label": "GitHub"
       }
     ]

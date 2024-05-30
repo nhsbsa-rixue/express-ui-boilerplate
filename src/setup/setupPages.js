@@ -14,9 +14,20 @@ const homePage = (req, res) => {
   return res.render("home", { pageList });
 };
 
-const setupPages = (app) => {
-  router.get(getContextPath(""), homePage);
+// Redirect to a page with CONTEXT_PATH
+// Usage res.redirectPageTo("page")
+const redirectPageTo = (req, res, next) => {
+  res.redirectPageTo = (page) => {
+    res.redirect(getContextPath(page));
+  };
+  next();
+};
 
+const setupPages = (app) => {
+  // Register the home page
+  router.get(getContextPath(), homePage);
+
+  // Register all the pages
   Object.entries(pages).forEach(([key, page]) => {
     const { path, controller, schema } = page;
 
@@ -29,8 +40,9 @@ const setupPages = (app) => {
       router.post(getContextPath(pagePath), schema, validator, controller.POST);
     }
   });
-
-  app.use("/", router);
+  // Add the redirectPageTo function to the response
+  app.use(redirectPageTo);
+  app.use(router);
 };
 
 export default setupPages;

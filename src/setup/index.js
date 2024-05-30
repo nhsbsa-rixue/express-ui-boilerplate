@@ -20,5 +20,5 @@ export default (app) => {
   setupSession(app);
   setupLanguage(app);
   setupPages(app);
-  setupErrorHandlers(app);
+  setupErrorHandlers(app); // Error handler should be the last middleware
 };

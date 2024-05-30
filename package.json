@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "build:sass": "node-sass ./public/style/main.scss ./public/style/main.css",
+    "build:sass": "sass ./public/style/main.scss ./public/style/main.css",
     "test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest",
     "test:coverage": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
     "eslint": "eslint .",
@@ -42,8 +42,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "node-sass": "^9.0.0",
     "nodemon": "^3.1.0",
-    "prettier": "3.2.5"
+    "prettier": "3.2.5",
+    "sass": "^1.77.3"
   }
 }

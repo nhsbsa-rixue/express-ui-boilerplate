@@ -3,11 +3,14 @@ import setup from "./setup/index.js";
 import logger from "./logger/index.js";
 import config from "./config/index.js";
 
+const { PORT, APP_NAME, CONTEXT_PATH } = config;
 const app = express();
 setup(app);
 
-const server = app.listen(config.PORT, () => {
-  logger.info(`Example app listening at http://localhost:${config.PORT}`);
+const server = app.listen(PORT, () => {
+  logger.info(
+    `${APP_NAME} listening at http://localhost:${PORT}${CONTEXT_PATH}`,
+  );
 });
 
 process.on("SIGTERM", () => {

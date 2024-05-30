@@ -8,6 +8,6 @@ export const resolvePath = (path) => {
   return Path.resolve(__dirname, path);
 };
 
-export const getContextPath = (path) => {
+export const getContextPath = (path = "") => {
   return `${Config.CONTEXT_PATH}${path}`;
 };
