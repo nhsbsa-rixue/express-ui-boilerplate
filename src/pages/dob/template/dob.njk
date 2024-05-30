@@ -2,13 +2,13 @@
 
 {% block heading %}
   {{ backLink({
-    href: "/",
+    href: CONTEXT_PATH,
     text: t("common.back")
   }) }}
 {% endblock %}
 
 {% block content %}
-  <form action="/dob" method="post">
+  <form action="{{CONTEXT_PATH +"dob"}}" method="post">
     {% if error %}
       {{ errorSummary({
         titleText: t("error.summaryTitle"),
@@ -19,7 +19,7 @@
     {% set errorMessage = { 
       text: t(error.fields.year | d(error.fields.month) | d(error.fields.day) )
     } if error.fields.year or error.fields.month or error.fields.day else null %}
-    
+
     {{ dateInput({
       fieldset: {
         legend: {

@@ -8,7 +8,6 @@
 {% endblock %}
 
 {% block fullWidthContent %}
-<div id="main">
   <h1 class="nhsuk-heading-xl">Home</h1>
 
   <ul class="nhsuk-grid-row nhsuk-card-group">
@@ -17,7 +16,7 @@
       <li class="nhsuk-grid-column-one-third nhsuk-card-group__item ">
         {{ card({
           "imgURL": "https://picsum.photos/320/240?r=" + loop.index,
-          "href": "/"+item.path,
+          "href": CONTEXT_PATH + item.path,
           "heading": item.heading,
           "headingClasses": "nhsuk-heading-xs",
           "classes": "hover-image"
@@ -25,5 +24,4 @@
       </li>
     {% endfor %}
   </ul>
-</div>
 {% endblock %}

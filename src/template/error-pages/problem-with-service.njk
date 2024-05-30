@@ -1,0 +1,16 @@
+{% extends "page.njk" %}
+
+
+{% block heading %}
+  {{ backLink({
+    href: CONTEXT_PATH,
+    text: t("common.back")
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ t("problemWithService.title") }}</h1>
+<p>{{ t("problemWithService.description") }}</p>
+
+{% endblock %}

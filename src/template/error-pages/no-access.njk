@@ -1,0 +1,16 @@
+
+{% extends "page.njk" %}
+
+{% block heading %}
+  {{ backLink({
+    href: CONTEXT_PATH,
+    text: t("common.back")
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ t("noAccess.title") }}</h1>
+<p>{{ t("noAccess.description") }}</p>
+
+{% endblock %}

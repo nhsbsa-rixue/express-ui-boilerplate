@@ -2,7 +2,7 @@ import fs from "fs";
 import express from "express";
 import nunjucks from "nunjucks";
 import config from "../config/index.js";
-import { resolvePath } from "../utils/index.js";
+import { resolvePath, getContextPath } from "../utils/index.js";
 
 const getSubDirectories = (source) => {
   return fs
@@ -30,7 +30,7 @@ const setupTemplate = (app) => {
   ];
 
   publicPaths.forEach((publicPath) => {
-    app.use(express.static(resolvePath(publicPath)));
+    app.use(getContextPath(""), express.static(resolvePath(publicPath)));
   });
 
   // Set the path to the page template and macros
@@ -43,8 +43,13 @@ const setupTemplate = (app) => {
 
   // Add all globals from config
   env.addGlobal("APP_NAME", config.APP_NAME);
-
+  env.addGlobal("CONTEXT_PATH", config.CONTEXT_PATH);
+  app.use((req, res, next) => {
+    req.CONTEXT_PATH = config.CONTEXT_PATH;
+    next();
+  });
   // Set the view engine to Nunjucks
+
   app.set("view engine", "njk");
 };
 

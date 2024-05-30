@@ -4,6 +4,7 @@ import setupParser from "./setupParser.js";
 import setupSession from "./setupSession.js";
 import setupLanguage from "./setupLanguage.js";
 import setupPages from "./setupPages.js";
+import setupErrorHandlers from "./errorHandler.js";
 
 /**
  * 1. Configure to load heavy sync tasks once
@@ -19,4 +20,5 @@ export default (app) => {
   setupSession(app);
   setupLanguage(app);
   setupPages(app);
+  setupErrorHandlers(app);
 };

@@ -1,9 +1,13 @@
 const GET = async (req, res) => {
-  res.render("dob");
+
+  return res.render("dob");
 };
 
 const POST = async (req, res) => {
-  res.redirect("dob");
+
+  console.log('================');
+
+  return res.redirect("/myapp/dob");
 };
 
 export default { GET, POST };

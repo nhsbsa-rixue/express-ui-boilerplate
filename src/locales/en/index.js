@@ -1,4 +1,4 @@
-const common = {
+export const common = {
   yes: "Yes",
   no: "No",
   back: "Go back",
@@ -13,8 +13,21 @@ const common = {
   continue: "Continue",
 };
 
-const error = {
+export const error = {
   summaryTitle: "There is a problem",
 };
 
-export { common, error };
+export const problemWithService = {
+  title: "Sorry, there is a problem with the service",
+  description: "Try again later.",
+};
+
+export const pageNotFound = {
+  title: "Page not found",
+  description: "Check the URL or try again later.",
+};
+
+export const noAccess = {
+  title: "No access",
+  description: "You do not have access to this page",
+};
