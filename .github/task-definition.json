@@ -1,0 +1,58 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-2:652163390647:task-definition/express_app:1",
+    "containerDefinitions": [
+        {
+            "name": "express_app2",
+            "image": "652163390647.dkr.ecr.eu-west-2.amazonaws.com/express-ui:24a5aef8f4f9844932a90358b9bbdd60c71e2555",
+            "cpu": 0,
+            "portMappings": [],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "systemControls": []
+        }
+    ],
+    "family": "express_app",
+    "taskRoleArn": "arn:aws:iam::652163390647:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::652163390647:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-05-31T11:02:06.612Z",
+    "registeredBy": "arn:aws:iam::652163390647:user/rixue",
+    "tags": []
+}
