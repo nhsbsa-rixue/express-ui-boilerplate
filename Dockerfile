@@ -7,6 +7,6 @@ COPY package*.json ./
 
 RUN npm install --omit=dev
 
-EXPOSE PORT
+EXPOSE 80
 
 CMD ["node", "./src/server.js"]
