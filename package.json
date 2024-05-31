@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build:sass": "sass ./public/style/main.scss ./public/style/main.css",
-    "build": "npm run build:sass",
+    "build": "npm install",
     "test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest",
     "test:coverage": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
     "eslint": "eslint .",
