@@ -9,5 +9,5 @@ export default {
   SESSION_SECRET: process.env.SESSION_SECRET || "SESSION",
   REDIS_URL: process.env.REDIS_URL,
   LANGUAGES: process.env.LANGUAGES?.split(",") || ["en"],
-  PORT: process.env.PORT || 8000,
+  PORT: process.env.PORT || 80,
 };
