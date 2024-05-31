@@ -1,5 +1,5 @@
 import express from "express";
-import setup from "./setup/index.js";
+import setup from "./src/setup/index.js";
 
 const app = express();
 setup(app);
