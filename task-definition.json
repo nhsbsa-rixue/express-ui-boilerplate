@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:eu-west-2:652163390647:task-definition/express_app:1",
     "containerDefinitions": [
         {
-            "name": "express_app2",
+            "name": "express_app",
             "image": "652163390647.dkr.ecr.eu-west-2.amazonaws.com/express-ui:24a5aef8f4f9844932a90358b9bbdd60c71e2555",
             "cpu": 0,
             "portMappings": [],
