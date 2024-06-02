@@ -23,21 +23,32 @@ const redirectPageTo = (req, res, next) => {
   next();
 };
 
+const addLocals = (page) => (req, res, next) => {
+  res.locals = {
+    ...res.locals,
+    ...{
+      heading: page.heading || page.path,
+      pageData: page.pageData || {},
+    },
+  };
+  next();
+};
+
 const setupPages = (app) => {
   // Register the home page
   router.get(getContextPath(), homePage);
 
   // Register all the pages
   Object.entries(pages).forEach(([key, page]) => {
-    const { path, controller, schema } = page;
+    const { path, get, post, schema } = page;
 
     const pagePath = path || key;
-    if (controller.GET) {
-      router.get(getContextPath(pagePath), controller.GET);
+    if (get) {
+      router.get(getContextPath(pagePath), addLocals(page), get);
     }
 
-    if (controller.POST) {
-      router.post(getContextPath(pagePath), schema, validator, controller.POST);
+    if (post) {
+      router.post(getContextPath(pagePath), schema, validator, post);
     }
   });
   // Add the redirectPageTo function to the response

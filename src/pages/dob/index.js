@@ -1,13 +1,23 @@
 import Page from "../Page.js";
 
-import { default as controller } from "./controller.js";
 import { default as schema } from "./schema.js";
 import * as locales from "./locales/index.js";
 
+const get = async (req, res) => {
+  return res.render("dob");
+};
+
+const post = async (req, res) => {
+  return res.redirectPageTo("dob");
+};
+
 export const dob = new Page({
   path: "dob",
+  previous: "",
+  nextPage: "dob",
   heading: "DOB form validation",
-  controller,
+  get,
+  post,
   locales,
   schema,
 });
