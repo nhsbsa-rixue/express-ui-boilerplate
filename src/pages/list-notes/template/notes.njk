@@ -1,0 +1,93 @@
+
+{% extends "../../../template/page.njk" %}
+
+{% block head %}
+    <style>
+        .container {
+            display: grid;
+            /* gap: 10px; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: masonry;   
+            row-gap: 10px;
+            column-gap: 10px;
+        }
+        .item {
+            background-color: blanchedalmond;
+        }
+    </style>
+{% endblock%}
+
+{% block heading %}
+  {{ backLink({
+    href: CONTEXT_PATH,
+    text: t("common.back")
+  }) }}
+{% endblock %}
+
+{% block fullWidthContent %}
+<h1 class="nhsuk-heading-xl">Notes</h1>
+  <form action="{{CONTEXT_PATH +"notes"}}" method="post">
+    
+    {% if error %}
+      {{ errorSummary({
+        titleText: t("error.summaryTitle"),
+        errorList: error.errorList
+      }) }}
+    {% endif %}
+
+
+    
+
+  {{ select({
+  "id": "partMonth",
+  "name": "partMonth",
+  "label": {
+    "text": "Part month"
+  },
+  errorMessage: { 
+    text: error.fields.partMonth
+} if error.fields.partMonth, 
+
+"items": dateList
+}) 
+}}
+
+    {{ textarea({
+    "name": "note",
+    "id": "note",
+    "label": {
+        "text": "Enter your note"
+    },
+    errorMessage: { 
+      text: error.fields.note
+    } if error.fields.note ,
+    "hint": {
+            "text": "Do not include personal or financial information, for example, your National Insurance number or credit card details."
+        }
+    }) }}
+
+    {{ button({
+      text: "Save note"
+    }) }}
+
+    
+   </form>
+    
+
+    <h2 class="nhsuk-heading-l">Notes history</h2>  
+
+    <div class="container">
+     
+
+    {% for note in notes %}
+        {{ card({
+             heading: note.partMonth,
+             description: note.note 
+        }) }}
+    {% endfor %}
+
+       
+    </div>
+
+
+{% endblock %}

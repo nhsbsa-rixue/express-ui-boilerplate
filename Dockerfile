@@ -1,4 +1,4 @@
-FROM node:18.20.3-alpine3.20
+FROM node:20.14-alpine
 
 ENV APP_NAME="express-ui-boilerplate"
 

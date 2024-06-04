@@ -15,6 +15,7 @@
   "author": "Riwang Xue",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.2",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "connect-redis": "^7.1.1",

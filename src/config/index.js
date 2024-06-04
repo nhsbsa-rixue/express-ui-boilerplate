@@ -10,4 +10,5 @@ export default {
   REDIS_URL: process.env.REDIS_URL,
   LANGUAGES: process.env.LANGUAGES?.split(",") || ["en"],
   PORT: process.env.PORT || 80,
+  API_ENDPOINT: process.env.API_ENDPOINT || "http://localhost:8000",
 };
