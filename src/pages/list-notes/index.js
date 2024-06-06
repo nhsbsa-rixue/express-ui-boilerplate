@@ -22,7 +22,7 @@ export const listNotes = new Page({
       }));
 
     const notes = await req.apiClient.makeRequest({
-      url: "/test",
+      url: "/notes",
       method: "GET",
     });
     res.render("notes", { notes, dateList });
@@ -31,7 +31,7 @@ export const listNotes = new Page({
   post: async (req, res) => {
     const { note, partMonth } = req.body;
     await req.apiClient.makeRequest({
-      url: "/test",
+      url: "/notes",
       method: "POST",
       data: {
         partMonth,
