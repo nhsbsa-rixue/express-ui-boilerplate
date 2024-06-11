@@ -1,25 +1,8 @@
 import config from "../config/index.js";
 import i18next from "i18next";
 import middleware from "i18next-http-middleware";
-import * as pages from "../pages/index.js";
-import * as commonLocale from "../locales/index.js";
-
-// Load lang locales depending on the CONFIG.LANGUAGES
-const loadResources = () => {
-  const resources = {};
-
-  config.LANGUAGES.forEach((lang) => {
-    resources[lang] = { translation: { ...commonLocale[lang] } };
-
-    Object.entries(pages).forEach(([key, page]) => {
-      if (page.locales) {
-        resources[lang].translation[key] = page.locales[lang];
-      }
-    });
-  });
-
-  return resources;
-};
+import Backend from "i18next-fs-backend";
+import { resolvePath } from "../utils/index.js";
 
 const saveUserPreference = (req, res, next) => {
   if (req.query.lang && config.LANGUAGES.includes(req.query.lang)) {
@@ -37,17 +20,25 @@ const saveUserPreference = (req, res, next) => {
  * @param {*} app
  */
 const setupLanguage = (app) => {
-  i18next.use(middleware.LanguageDetector).init({
-    preload: config.LANGUAGES,
-    fallbackLng: "en",
-    resources: loadResources(),
-    detection: {
-      order: ["querystring", "cookie", "header"],
-      lookupQuerystring: "lang",
-      lookupCookie: "lang",
-      caches: ["cookie"],
-    },
-  });
+  i18next
+    .use(Backend)
+    .use(middleware.LanguageDetector)
+    .init({
+      preload: config.LANGUAGES,
+      fallbackLng: "en",
+      nsSeparator: ".",
+      ns: ["common", "error", "dob"],
+      defaultNS: "",
+      backend: {
+        loadPath: resolvePath("../locales/{{lng}}/{{ns}}.json"),
+      },
+      detection: {
+        order: ["querystring", "cookie", "header"],
+        lookupQuerystring: "lang",
+        lookupCookie: "lang",
+        caches: ["cookie"],
+      },
+    });
 
   app.use(middleware.handle(i18next, { removeLngFromUrl: true }));
   app.use(saveUserPreference);

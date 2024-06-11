@@ -1,0 +1,16 @@
+{   
+    "summaryTitle": "There is a problem",
+    "problemWithService": {
+      "title": "Sorry, there is a problem with the service",
+      "description": "Try again later."
+    },
+    "pageNotFound": {
+      "title": "Page not found",
+      "description": "Check the URL or try again later."
+    },
+    "noAccess": {
+      "title": "No access",
+      "description": "You do not have access to this page"
+    }
+
+}

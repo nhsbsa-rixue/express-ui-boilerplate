@@ -5,7 +5,6 @@
  * @property {ExpressHandler} [get] - The get controller for the page.
  * @property {ExpressHandler} [post] - The post controller for the page.
  * @property {ValidationChain[]} [schema] - The schema for the page. Defaults to an empty array if not provided.
- * @property {Object} [locales] - The locales for the page. Defaults to an empty object if not provided.
  */
 
 /**
@@ -16,11 +15,10 @@ export default class Page {
   /**
    * @param {PageOptions} options
    */
-  constructor({ heading, get, post, schema, locales, path }) {
+  constructor({ heading, get, post, schema, path }) {
     this.path = path;
     this.heading = heading || this.path;
     this.schema = schema || [];
-    this.locales = locales || {};
     this.get = get;
     this.post = post;
   }

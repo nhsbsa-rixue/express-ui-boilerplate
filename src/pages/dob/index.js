@@ -1,7 +1,6 @@
 import Page from "../Page.js";
 
 import { default as schema } from "./schema.js";
-import * as locales from "./locales/index.js";
 
 const get = async (req, res) => {
   return res.render("dob");
@@ -18,6 +17,5 @@ export const dob = new Page({
   heading: "DOB form validation",
   get,
   post,
-  locales,
   schema,
 });
