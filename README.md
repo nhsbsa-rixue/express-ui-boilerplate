@@ -1,50 +1,133 @@
-# Express UI Boilerplate
+# Product-Price-Tracker
 
-This project is a boilerplate for building web applications with Express.js. It includes a pre-configured setup for Sass, Jest, ESLint, and Nodemon.
+## About the product price tracker
 
-## Getting Started
+A personal assignment to create a RESTful web service that allows users to enter a product URL and set a price drop alert
 
-To get started with this project, follow these steps:
+## Quick start
 
+### Building the application
 
-1. Install the dependencies:
-    ```
-    npm install
-    ```
+Install the dependencies:
 
-2. Start the development server:
-    ```
-    npm run dev
-    ```
+```sh
+  npm install
+```
 
-## Scripts
+Build the app
 
-- `npm run build:sass`: Compiles Sass files into CSS.
-- `npm test`: Runs the Jest test suite.
-- `npm run test:coverage`: Runs the Jest test suite and generates a coverage report.
-- `npm run eslint`: Lints the project using ESLint.
-- `npm run dev`: Starts the development server with Nodemon.
+```sh
+  npm run build
+```
 
-## Libraries
+### Running the application
 
-This project uses the following libraries:
+```sh
+npm run dev
+```
 
-- `body-parser`: Middleware to parse incoming request bodies.
-- `compression`: Middleware to compress response bodies for improved performance.
-- `connect-redis`: Redis session store for Express.
-- `cookie-parser`: Middleware to parse cookies.
-- `dotenv`: Loads environment variables from a .env file.
-- `express`: Fast, unopinionated, minimalist web framework for Node.js.
-- `express-session`: Simple session middleware for Express.
-- `express-validator`: An Express middleware for data validation.
-- `helmet`: Helps secure Express apps by setting various HTTP headers.
+Then the application can be invoked though those RESTful endpoints: product, users, watching for alerts
 
-## Project Structure
+#### Public facing endpoint
 
-The `setup` folder contains configuration for various parts of the application:
+* POST `http://localhost:8000/watching`  
 
-- `setupLanguage.js`: Configures i18next for internationalization.
-- `setupMiddleware.js`: Configures Express middleware.
-- `setupRoutes.js`: Configures Express routes.
-- `setupSession.js`: Configures Express session.
-- `setupTemplate.js`: Configures Nunjucks for templating.
+The request body must be in JSON format and contain the following parameters:
+
+* **productId** (string): The unique identifier for the product the user wants to watch.
+* **userEmail** (string): The email address of the user who is setting the alert.
+* **desiredPrice** (number): The price at which the user wants to be notified.
+* **fullDayAlert** (boolean): Indicates if the user wants to receive alerts throughout the day.
+* **nightAlert** (boolean): Indicates if the user wants to receive alerts during the night.
+* **morningAlert** (boolean): Indicates if the user wants to receive alerts in the morning.
+
+---
+
+Example Request Body
+
+```json
+{
+  "productId": "746a83c7-9cfd-440a-90c8-f57438",
+  "userEmail": "example1@email.com",
+  "desiredPrice": 100,
+  "fullDayAlert": true,
+  "nightAlert": true,
+  "morningAlert": true
+}
+```
+
+Example Response:
+
+```json
+{
+  "productId": "746a83c7-9cfd-440a-90c8-f57438",
+  "userEmail": "<example1@email.com>",
+  "desiredPrice": 100,
+  "fullDayAlert": true,
+  "morningAlert": true,
+  "nightAlert": true
+}
+
+```
+
+![1755027241418](image/README/1755027241418.png)
+
+#### Administrative operations
+
+* POST `http://localhost:8000/mock-alert`
+
+This endpoint is designed to mock the actual alert services which is trigger by schedules time.
+So we able to test the alert services without waiting the timer started.
+It accept the Request Body
+
+```json
+
+{
+  "alertType": "fullDay"
+}
+
+```
+
+This assignment using logging as mock emails services
+pretend to send alerts to users:
+
+![1755026679199](image/README/1755026679199.png)
+
+Response:
+
+```json
+
+{
+    "message": "Alerts sent successfully"
+}
+
+```
+
+* `http://localhost:8000/products` Methods: get, put, delete, post
+* `http://localhost:8000/users` Methods: get
+
+Those 2 API endpoints are for administrative purpose to create products and users.
+
+### Scheduled Cron Jobs
+
+This application uses two scheduled cron jobs to automatically send price drop alerts to users based on their alert preferences:
+
+#### Morning Alert
+
+Schedule: Every day at 8:00 AM
+Function: Triggers the sendAlert("day") function, which checks all watching records where either fullDayAlert or dayAlert is enabled. If a product’s price drops below the user’s desired price, an alert email is sent.
+
+#### Night Alert
+
+Schedule: Every day at midnight (00:00)
+Function: Triggers the sendAlert("night") function, which checks all watching records where either fullDayAlert or nightAlert is enabled. If a product’s price drops below the user’s desired price, an alert email is sent.
+
+## Contributions
+
+We operate a [code of conduct](CODE_OF_CONDUCT.md) for all contributors.
+
+See our [contributing guide](CONTRIBUTING.md) for guidance on how to contribute.
+
+## License
+
+Released under the [Apache 2 license](LICENCE.txt).

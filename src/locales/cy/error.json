@@ -1,16 +1,15 @@
 {   
-    "summaryTitle": "There is a problem",
-    "problemWithService": {
-      "title": "Sorry, there is a problem with the service",
-      "description": "Try again later."
-    },
-    "pageNotFound": {
-      "title": "Page not found",
-      "description": "Check the URL or try again later."
-    },
-    "noAccess": {
-      "title": "No access",
-      "description": "You do not have access to this page"
-    }
-
+  "summaryTitle": "Mae problem yn bodoli",
+  "problemWithService": {
+    "title": "Ymddiheuriadau, mae problem gyda'r gwasanaeth",
+    "description": "Rhowch gynnig arall arni yn nes ymlaen."
+  },
+  "pageNotFound": {
+    "title": "Dywediadur heb ei ddarganfod",
+    "description": "Gwiriwch y URL neu rhowch gynnig arall arni yn nes ymlaen."
+  },
+  "noAccess": {
+    "title": "Dim mynediad",
+    "description": "Nid oes gennych fynediad at y dudalen hon"
+  }
 }

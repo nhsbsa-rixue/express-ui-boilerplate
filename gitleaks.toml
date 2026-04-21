@@ -1,0 +1,4 @@
+title = "employee-skills-tracker Gitleaks config"
+
+[extend]
+path = "gitleaks-nhsbsa.toml"

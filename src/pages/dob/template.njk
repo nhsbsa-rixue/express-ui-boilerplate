@@ -1,0 +1,54 @@
+{% extends "../../template/page.njk" %}
+{% block goBack %}
+  {{ backLink({
+    href: getRequestUri(),
+    text: t("common.back")
+  }) }}
+{% endblock %}
+{% block content %}
+  <h1>{{ title }}
+  </h1>
+  <form action="{{ getRequestUri('dob') }}" method="post">
+    {% if error %}
+      {{ errorSummary({
+        titleText: t("error.summaryTitle"),
+        errorList: error.errorList
+      }) }}
+    {% endif %}
+    {% set errorMessage = { 
+      text: t(error.fields.year | d(error.fields.month) | d(error.fields.day) )
+    } if error.fields.year or error.fields.month or error.fields.day else null %}
+    {{ dateInput({
+      hint: {
+        text: t("dob.hint")
+      },
+      errorMessage: errorMessage,
+      items: [
+        { 
+          id: "day",
+          name: "day",
+          label: t("dob.day"),
+          classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.day else  "nhsuk-input--width-2",
+          value: body.day | d('')
+        },
+        {
+          id: "month",
+          name: "month",
+          label: t("dob.month"),
+          classes: "nhsuk-input--width-2  nhsuk-input--error" if error.fields.month else  "nhsuk-input--width-2",
+          value: body.month | d('')
+        },
+        {
+          id: "year",
+          name: "year",
+          label: t("dob.year"),
+          classes: "nhsuk-input--width-4  nhsuk-input--error" if error.fields.year else  "nhsuk-input--width-4",
+          value: body.year | d('')
+        }
+      ]
+    }) }}
+    {{ button({
+      text: t("common.continue")
+    }) }}
+  </form>
+{% endblock %}

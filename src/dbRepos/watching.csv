@@ -1,0 +1,3 @@
+userEmail,productId,desiredPrice,fullDayAlert,nightAlert,dayAlert
+example1@email.com,746a83c7-9cfd-440a-90c8-f574380e9c27,20.00,true,true,true
+example2@email.com2,683de6e4-c890-4465-a9ed-10b1b8090919,20.00,false,true,false

@@ -1,15 +1,18 @@
-FROM node:20.14-alpine
+FROM node:20-alpine
 
-ENV APP_NAME="express-ui-boilerplate"
+ENV APP_NAME="UI Scaffold"
+ENV PORT=8001
+
+WORKDIR /app
+COPY . /app
 
 
-COPY src ./src
-COPY public ./public
+RUN npm install -g rimraf
+RUN npm install --omit-dev
+RUN npm run build
 
-COPY package*.json ./
 
-RUN npm install --omit=dev
+EXPOSE 8001
 
-EXPOSE 80
+ENTRYPOINT ["npm", "start"]
 
-CMD ["node", "./src/server.js"]

@@ -2,30 +2,41 @@
 <html lang="{{ lang | d("en") }}" style="{{ html_style }}">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="This project is a boilerplate for building web applications with Express.js. It includes a pre-configured setup for Sass, Jest, ESLint, and Nodemon.">
+    <title>{{ APP_NAME | d("NHS.UK frontend") }} - {{ title }}</title>
 
-    <title>{{ title }} - {{ APP_NAME | d("NHS.UK frontend") }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#005eb8">
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+    <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+    <link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
+    <link rel="manifest" href="/assets/manifest.json">
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
+    <link rel="stylesheet" href="/nhsuk-frontend.min.css">
+    <link rel="stylesheet" href="/style/main.css">
 
-    <link href="style/main.css" rel="stylesheet">
-    <script src="nhsuk.js" defer></script>
 
     {% block head %}{% endblock %}
 
   </head>
 
   <body class="{{ body_class }}">
-    <script nonce="{{nonce}}">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <script nonce="{{nonce}}">
+      document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');
+    </script>
 
       {% block header %}{% endblock %}
+
       {% block body %}{% endblock %}
+
       {% block footer %}{% endblock %}
+
+    <script type="module" src="/nhsuk-frontend.min.js"></script>
+    <script type="module">
+      import { initAll } from '/nhsuk-frontend.min.js'
+      initAll()
+    </script>
   </body>
 </html>

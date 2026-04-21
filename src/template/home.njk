@@ -1,25 +1,13 @@
-
 {% extends "page.njk" %}
-
-{% block head %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-
-<script src="js/index.js" defer></script>
-{% endblock %}
-
 {% block fullWidthContent %}
-  <h1 class="nhsuk-heading-xl">Home</h1>
-
+  <h1>Home</h1>
   <ul class="nhsuk-grid-row nhsuk-card-group">
-    {% for item in pageList %}
-
+    {% for page in pageList %}
       <li class="nhsuk-grid-column-one-third nhsuk-card-group__item ">
         {{ card({
-          "imgURL": "https://picsum.photos/320/240?r=" + loop.index,
-          "href": CONTEXT_PATH + item.path,
-          "heading": item.heading,
-          "headingClasses": "nhsuk-heading-xs",
-          "classes": "hover-image"
+          "href":  getRequestUri(page.path),
+          "heading": t(page.title),
+          "headingClasses": "nhsuk-heading-xs"
         }) }}
       </li>
     {% endfor %}
