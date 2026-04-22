@@ -36,4 +36,4 @@ Act as a senior TypeScript engineer for this codebase. Prefer minimal, safe, pro
 - Add/adjust `*.test.ts` in a `__tests__/` subfolder near changed code.
 - In tests, use clear `// given`, `// when`, `// then` comments.
 - Use global mock helpers (`mockRequest`, `mockResponse`, `mockNext`) from [test-setup/setup.ts](../../test-setup/setup.ts).
-- Keep test string style consistent with [code_style.prompt.md](code_style.prompt.md).
+- Keep test string style consistent with [code-style.prompt.md](../prompts/code-style.prompt.md).

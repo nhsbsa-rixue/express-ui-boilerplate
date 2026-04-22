@@ -1,0 +1,11 @@
+{
+    "title": "Beth yw eich enw llawn?",
+    "firstNameLabel": "Enw cyntaf",
+    "lastNameLabel": "Cyfenw",
+    "firstNameRequired": "Rhowch eich enw cyntaf os gwelwch yn dda",
+    "lastNameRequired": "Rhowch eich cyfenw os gwelwch yn dda",
+    "firstNameMaxLength": "Rhaid i'r enw cyntaf fod yn 50 nod neu lai",
+    "lastNameMaxLength": "Rhaid i'r cyfenw fod yn 50 nod neu lai",
+    "firstNameInvalidFormat": "Rhaid i'r enw cyntaf gynnwys llythrennau, bylchau ac apostrophau yn unig",
+    "lastNameInvalidFormat": "Rhaid i'r cyfenw gynnwys llythrennau, bylchau ac apostrophau yn unig"
+}

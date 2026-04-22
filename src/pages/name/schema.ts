@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_validator_1 = require("express-validator");
-exports.default = [
-    (0, express_validator_1.body)("firstName")
+import { body } from "express-validator";
+
+export default [
+    body("firstName")
         .trim()
         .notEmpty()
         .bail()
@@ -11,7 +10,7 @@ exports.default = [
         .withMessage("name.firstNameMaxLength")
         .matches(/^[a-zA-Z\s']+$/)
         .withMessage("name.firstNameInvalidFormat"),
-    (0, express_validator_1.body)("lastName")
+    body("lastName")
         .trim()
         .notEmpty()
         .bail()
@@ -21,4 +20,3 @@ exports.default = [
         .matches(/^[a-zA-Z\s']+$/)
         .withMessage("name.lastNameInvalidFormat"),
 ];
-//# sourceMappingURL=schema.js.map

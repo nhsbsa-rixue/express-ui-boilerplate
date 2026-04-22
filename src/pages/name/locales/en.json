@@ -1,0 +1,11 @@
+{
+    "title": "What is your full name?",
+    "firstNameLabel": "First name",
+    "lastNameLabel": "Last name",
+    "firstNameRequired": "Please enter your first name",
+    "lastNameRequired": "Please enter your last name",
+    "firstNameMaxLength": "First name must be 50 characters or less",
+    "lastNameMaxLength": "Last name must be 50 characters or less",
+    "firstNameInvalidFormat": "First name must only contain letters, spaces, and apostrophes",
+    "lastNameInvalidFormat": "Last name must only contain letters, spaces, and apostrophes"
+}
