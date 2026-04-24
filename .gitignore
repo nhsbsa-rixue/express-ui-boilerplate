@@ -27,3 +27,6 @@ launch.json
 samconfig.toml
 template_docker_image.yaml
 .vercel
+
+# Build output
+dist/

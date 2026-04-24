@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { v4 as uuid } from "uuid";
+import * as crypto from "node:crypto";
 import { CONSTANTS } from "../../constants";
 
 export const get: Controller = async (req, res, _next) => {
@@ -17,7 +17,7 @@ export const list: Controller = async (req, res, _next) => {
 
 export const post: Controller = async (req, res, _next) => {
   const { name, price } = req.body;
-  const newProduct: Product = { id: uuid(), name, price };
+  const newProduct: Product = { id: crypto.randomUUID(), name, price };
   req.products.push(newProduct);
   return res.status(StatusCodes.CREATED).json(newProduct);
 };

@@ -1,7 +1,7 @@
 {
-  "name": "product-price-tracker",
+  "name": "express-ui-boilerplate",
   "version": "1.0.0",
-  "description": "A personal assignment to create a RESTful web service to users to track product prices",
+  "description": "This project is a boilerplate for building web applications with Express.js. It includes a pre-configured setup for Sass, Jest, ESLint, and Nodemon.",
   "main": "dist/src/server.js",
   "scripts": {
     "postinstall": "npm run build",

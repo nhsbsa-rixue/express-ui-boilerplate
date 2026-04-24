@@ -1,4 +1,3 @@
-/// <reference types="vitest/globals" />
 import type { Express as ExpressApp, NextFunction, Request, RequestHandler, Response } from "express";
 import type { ValidationChain } from "express-validator";
 
@@ -39,14 +38,14 @@ declare global {
     [key: string]: string | number | boolean;
   }
 
-  interface App extends ExpressApp {}
+  interface App extends ExpressApp { }
 
   // Req/Res still available for explicit use in controllers
-  interface Req extends Request {}
+  interface Req extends Request { }
 
-  interface Res extends Response {}
+  interface Res extends Response { }
 
-  interface Next extends NextFunction {}
+  interface Next extends NextFunction { }
 
   interface EmailTemplate {
     to: string;

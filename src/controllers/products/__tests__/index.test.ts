@@ -8,10 +8,6 @@ let next: Next;
 const mockUuid = "123e4567-e89b-12d3-a456-426614174000";
 const getMockProducts = () => [{ id: mockUuid, name: "productName", price: 100 }];
 
-vi.mock("uuid", () => ({
-  v4: () => mockUuid,
-}));
-
 beforeEach(() => {
   req = mockRequest({ products: getMockProducts() });
   res = mockResponse();
@@ -53,7 +49,7 @@ describe("product controllers", () => {
     // then
     expect(res.status).toHaveBeenCalledWith(StatusCodes.CREATED);
     expect(res.json).toHaveBeenCalledWith({
-      id: mockUuid,
+      id: expect.any(String),
       name: "productName",
       price: 100,
     });

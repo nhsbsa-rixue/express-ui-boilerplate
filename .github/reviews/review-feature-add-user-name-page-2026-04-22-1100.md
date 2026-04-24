@@ -25,6 +25,7 @@ The changes are currently **uncommitted working directory modifications**. The `
 The `src/pages/name/` TypeScript source files are untracked (would not be included in a commit), while the compiled `dist/` artefacts are modified. Committing as-is would put the compiled JS output into version control without the TypeScript source, breaking the repo's source-of-truth contract.
 
 **Fix:** Stage all files together before committing:
+
 ```sh
 git add src/pages/name/ dist/src/pages/name/ .github/prompts/a11y.prompt.md
 ```
@@ -39,6 +40,7 @@ git add src/pages/name/ dist/src/pages/name/ .github/prompts/a11y.prompt.md
 `biome.json` specifies `"indentWidth": 2`, but `schema.ts` uses 4-space indentation throughout.
 
 **Fix:**
+
 ```sh
 npx biome format --write src/pages/name/schema.ts
 ```
@@ -66,6 +68,7 @@ The template uses 4-space indentation, while `src/pages/dob/template.njk` uses 2
 `\s` matches any whitespace character, including tabs (`\t`), newlines (`\n`), carriage returns (`\r`), and form feeds. For a name field, only a literal space character should be permitted.
 
 **Fix:**
+
 ```ts
 .matches(/^[a-zA-Z ']+$/)
 ```
@@ -79,6 +82,7 @@ The template uses 4-space indentation, while `src/pages/dob/template.njk` uses 2
 The `firstName` and `lastName` inputs collect personal name information but have no `autocomplete` attributes. WCAG 2.2 criterion 1.3.5 (Identify Input Purpose, Level AA) requires `autocomplete` on fields that collect user personal data.
 
 **Fix:** Add `autocomplete` to each `input` macro call:
+
 ```njk
 {{ input({
   ...
