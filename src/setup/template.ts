@@ -11,7 +11,7 @@ import { getRequestUri } from "../utils";
  * Page templates follow the convention: pages/{page}/template.njk
  */
 const getPageFolders = () => {
-  return [path.join(__dirname, "../pages")];
+  return [path.join(process.cwd(), "src/pages")];
 };
 
 /**
@@ -25,11 +25,11 @@ const getPageFolders = () => {
  */
 const getTemplatePaths = () => {
   const templatePaths = [
-    path.join(__dirname, "../../src/template"),
-    path.join(__dirname, "../../node_modules/nhsuk-frontend/dist/"),
-    path.join(__dirname, "../../node_modules/nhsuk-frontend/dist/nhsuk"),
-    path.join(__dirname, "../../node_modules/nhsuk-frontend/dist/nhsuk/components"),
-    path.join(__dirname, "../../node_modules/nhsuk-frontend/dist/nhsuk/macros"),
+    path.join(process.cwd(), "src/template"),
+    path.join(process.cwd(), "node_modules/nhsuk-frontend/dist/"),
+    path.join(process.cwd(), "node_modules/nhsuk-frontend/dist/nhsuk"),
+    path.join(process.cwd(), "node_modules/nhsuk-frontend/dist/nhsuk/components"),
+    path.join(process.cwd(), "node_modules/nhsuk-frontend/dist/nhsuk/macros"),
   ];
 
   const pageDirs = getPageFolders();
@@ -44,8 +44,8 @@ const getTemplatePaths = () => {
  * 2. nhsuk-frontend package
  */
 const publicPaths = [
-  path.join(__dirname, "../../public"),
-  path.join(__dirname, "../../node_modules/nhsuk-frontend/dist/nhsuk"),
+  path.join(process.cwd(), "public"),
+  path.join(process.cwd(), "node_modules/nhsuk-frontend/dist/nhsuk"),
 ];
 
 const setupTemplate = (app: App) => {

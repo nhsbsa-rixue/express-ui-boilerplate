@@ -4,8 +4,9 @@ coverage/
 # Dependency directories
 node_modules/
 
-# Optional npm cache directory
-.npm
+# Optional pnpm cache directory
+.pnpm-store
+pnpm-debug.log*
 
 # Optional eslint cache
 .eslintcache
@@ -29,4 +30,4 @@ template_docker_image.yaml
 .vercel
 
 # Build output
-dist/
+dist

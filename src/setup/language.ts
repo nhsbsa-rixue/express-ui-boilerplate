@@ -8,7 +8,7 @@ import config from "../config";
 const SHARED_NAMESPACES = ["common", "error"];
 
 const getPageNamespaces = (): string[] => {
-  const pagesDir = path.join(__dirname, "../pages");
+  const pagesDir = path.join(process.cwd(), "src/pages");
   return fs
     .readdirSync(pagesDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(pagesDir, entry.name, "locales")))

@@ -9,22 +9,22 @@ To get started with this project, follow these steps:
 1. Install the dependencies:
 
     ```
-    npm install
+    pnpm install
     ```
 
 2. Start the development server:
 
     ```
-    npm run dev
+    pnpm run dev
     ```
 
 ## Scripts
 
-- `npm run build:sass`: Compiles Sass files into CSS.
-- `npm test`: Runs the Jest test suite.
-- `npm run test:coverage`: Runs the Jest test suite and generates a coverage report.
-- `npm run eslint`: Lints the project using ESLint.
-- `npm run dev`: Starts the development server with Nodemon.
+- `pnpm run build:sass`: Compiles Sass files into CSS.
+- `pnpm test`: Runs the Jest test suite.
+- `pnpm run test:coverage`: Runs the Jest test suite and generates a coverage report.
+- `pnpm run eslint`: Lints the project using ESLint.
+- `pnpm run dev`: Starts the development server with Nodemon.
 
 ## Libraries
 

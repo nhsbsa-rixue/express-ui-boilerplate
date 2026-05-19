@@ -6,13 +6,13 @@ ENV PORT=8001
 WORKDIR /app
 COPY . /app
 
-
-RUN npm install -g rimraf
-RUN npm install --omit-dev
-RUN npm run build
+RUN corepack enable
+RUN pnpm install --frozen-lockfile
+RUN pnpm run build
+RUN pnpm prune --prod
 
 
 EXPOSE 8001
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["pnpm", "start"]
 
