@@ -1,14 +1,11 @@
-import express from "express";
 import config from "./config";
 import { setupCronJobs } from "./cronJobs";
 import logger from "./logger";
-import setup from "./setup";
+import { app } from "./app";
 
 logger.info("Starting application...");
 
 const { PORT, APP_NAME, CONTEXT_PATH } = config;
-const app = express();
-setup(app);
 setupCronJobs();
 
 const server = app.listen(PORT, () => {
